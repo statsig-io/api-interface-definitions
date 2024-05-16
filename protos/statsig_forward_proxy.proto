@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package statsig_forward_proxy;
+package grpc.generated.statsig_forward_proxy;
 
 service StatsigForwardProxy {
     rpc getConfigSpec (ConfigSpecRequest) returns (ConfigSpecResponse);
