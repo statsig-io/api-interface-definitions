@@ -10,8 +10,9 @@ service StatsigForwardProxy {
 
 message ConfigSpecRequest {
     enum apiVersion {
-        v1 = 0;
-        v2 = 1;
+        no_version = 0;
+        v1 = 1;
+        v2 = 2;
     }
     
     string sdkKey = 1;
