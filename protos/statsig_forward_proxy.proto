@@ -9,8 +9,14 @@ service StatsigForwardProxy {
 }
 
 message ConfigSpecRequest {
+    enum apiVersion {
+        v1 = 0;
+        v2 = 1;
+    }
+    
     string sdkKey = 1;
-    optional uint64 sinceTime = 12;
+    optional uint64 sinceTime = 12; // This was a typo but you can't delete it
+    optional apiVersion version = 3;
 }
 
 message ConfigSpecResponse {
