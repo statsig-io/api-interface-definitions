@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package statsig_data_adapter;
+option java_package = "grpc.generated.statsig_data_adapter";
+
+enum dataAdapterKey {
+  config_v1 = 0;
+  idlist = 1;
+  config_v2 = 2;
+}
