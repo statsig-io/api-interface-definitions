@@ -6,9 +6,6 @@ option java_package = "grpc.generated.statsig_forward_proxy";
 service StatsigForwardProxy {
     rpc getConfigSpec (ConfigSpecRequest) returns (ConfigSpecResponse);
     rpc StreamConfigSpec(ConfigSpecRequest) returns (stream ConfigSpecResponse) {}
-
-    rpc getIdLists(GetIdListsRequest) returns (GetIdListsResponse);
-    rpc StreamIdLists(GetIdListsRequest) returns (stream GetIdListsResponse) {}
 }
 
 message ConfigSpecRequest {
@@ -28,12 +25,4 @@ message ConfigSpecResponse {
     string spec = 1;
     uint64 lastUpdated = 2;
     optional string zstdDictId = 3;
-}
-
-message GetIdListsRequest {
-    string sdkKey = 1;
-}
-
-message GetIdListsResponse {
-    string idLists = 1;
 }
