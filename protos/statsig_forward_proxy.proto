@@ -21,11 +21,13 @@ message ConfigSpecRequest {
     string sdkKey = 1;
     optional uint64 sinceTime = 12; // This was a typo but you can't delete it
     optional apiVersion version = 3;
+    optional zstdDictId = 4;
 }
 
 message ConfigSpecResponse {
     string spec = 1;
     uint64 lastUpdated = 2;
+    optional zstdDictId = 3;
 }
 
 message GetIdListsRequest {
