@@ -43,6 +43,11 @@ message Spec {
   repeated Rule rules = 7;
   optional bool is_active = 8;
   repeated string explicit_parameters = 9;
+  optional bool has_shared_params = 10;
+  repeated string target_app_ids = 11;
+  optional bool use_new_layer_eval = 12;
+  optional bool forward_all_exposures = 13;
+  repeated string fields_used = 14;
 }
 
 message Rule {
@@ -53,6 +58,11 @@ message Rule {
   repeated string conditions = 5;
   IdType id_type = 6;
   ReturnValue return_value = 7;
+  optional string group_name = 8;
+  optional string config_delegate = 9;
+  optional bool is_experiment_group = 10;
+  optional bool is_control_group = 11;
+  optional float sampling_rate = 12;
 }
 
 message Condition {
