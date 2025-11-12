@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package statsig;
+package statsig_config_specs;
 
 message SpecsEnvelope {
   SpecsEnvelopeKind kind = 1;
@@ -27,10 +27,7 @@ message SpecsTopLevel {
   string response_format = 4;
   string checksum = 5;
   map<string, Condition> condition_map = 6;
-  map<string, string> experiment_to_layer = 7;
-  map<string, AnyValue> sdk_configs = 8;
-  SessionReplayInfo session_replay_info = 9;
-  Diagnostics diagnostics = 10;
+  bytes rest = 7;
 }
 
 message Spec {
@@ -171,29 +168,3 @@ enum EntityType {
     ENTITY_HOLDOUT = 7;
 }
 
-// ------------------------------------------------------------------------ [ Session Replay ]
-
-message SessionReplayInfo {
-  optional float sampling_rate = 1;
-  optional string targeting_gate = 2;
-  optional bool recording_blocked = 3;
-  map<string, SessionReplayTrigger> session_recording_event_triggers = 4;
-  map<string, SessionReplayTrigger> session_recording_exposure_triggers = 5;
-}
-
-message SessionReplayTrigger {
-  float sampling_rate = 1;
-  repeated string values = 2;
-}
-
-// ------------------------------------------------------------------------ [ Diagnostics ]
-
-message Diagnostics {
-  float initialize = 1;
-  float dcs = 2;
-  float download_config_specs = 3;
-  float log = 4;
-  float log_event = 5;
-  float idlist = 6;
-  float get_id_list = 7;
-}
