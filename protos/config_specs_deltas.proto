@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package statsig_config_specs;
+
+// Deltas variant of the rulesets response. APIConfigSpecV2 is represented as raw bytes.
+message RulesetsResponseDeltas {
+  map<string, bytes> dynamic_configs = 1;
+  map<string, bytes> feature_gates = 2;
+  map<string, bytes> layer_configs = 3;
+  map<string, bytes> experiment_to_layer = 4;
+  map<uint32, bytes> condition_map = 5;
+  map<string, bytes> sdk_configs = 6;
+  map<string, bytes> param_stores = 7;
+  map<string, bytes> cmab_configs = 8;
+  map<string, bytes> override_rules = 9;
+  map<string, bytes> overrides = 10;
+}
+
+message RulesetsDeltaResponse {
+  RulesetsResponseDeltas upserted_entities = 1;
+  RulesetsResponseDeltas deleted_entities = 2;
+  map<string, uint64> field_checksums = 3;
+  uint64 time = 4;
+  optional uint64 checksum = 5;
+}
+
+message RulesetsDeltaSequenceResponse {
+  repeated RulesetsDeltaResponse deltas = 1;
+}
