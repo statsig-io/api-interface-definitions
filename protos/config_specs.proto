@@ -18,6 +18,9 @@ enum SpecsEnvelopeKind {
   SPECS_ENVELOPE_KIND_FEATURE_GATE = 3; // Spec
   SPECS_ENVELOPE_KIND_DYNAMIC_CONFIG = 4; // Spec
   SPECS_ENVELOPE_KIND_LAYER_CONFIG = 5; // Spec
+
+  SPECS_ENVELOPE_KIND_PARAM_STORE = 6; // ParamStore
+  SPECS_ENVELOPE_KIND_CONDITION = 7; // Condition
 }
 
 message SpecsTopLevel {
@@ -26,7 +29,6 @@ message SpecsTopLevel {
   string company_id = 3;
   string response_format = 4;
   string checksum = 5;
-  map<string, Condition> condition_map = 6;
   bytes rest = 7;
 }
 
