@@ -21,7 +21,9 @@ enum SpecsEnvelopeKind {
 
   SPECS_ENVELOPE_KIND_PARAM_STORE = 6; // ParamStore
   SPECS_ENVELOPE_KIND_CONDITION = 7; // Condition
-  SPECS_ENVELOPE_KIND_DELTA = 8; // Delta payload - see config_specs_deltas.proto
+  SPECS_ENVELOPE_KIND_DELETIONS = 8; // RulesetsResponseDeletions
+  SPECS_ENVELOPE_KIND_CHECKSUMS = 9; // RulesetsChecksums
+  SPECS_ENVELOPE_KIND_COPY_PREV = 10;
 }
 
 message SpecsTopLevel {
@@ -171,3 +173,29 @@ enum EntityType {
     ENTITY_HOLDOUT = 7;
 }
 
+/**
+ * Key names to be deleted from the DCS' top-level fields.
+ */
+message RulesetsResponseDeletions {
+  repeated string dynamic_configs = 1;
+  repeated string feature_gates = 2;
+  repeated string layer_configs = 3;
+  repeated string experiment_to_layer = 4;
+  repeated string condition_map = 5;
+  repeated string sdk_configs = 6;
+  repeated string param_stores = 7;
+  repeated string cmab_configs = 8;
+  repeated string override_rules = 9;
+  repeated string overrides = 10;
+}
+
+message RulesetsChecksums {
+  // Map of checksums, representing all of the entity checksums combined
+  // e.g.
+  // {
+  //   "dynamic_configs": 1234,
+  //   "layer_configs": 4567,
+  //   ...
+  // }
+  map<string, uint64> field_checksums = 1;
+}
