@@ -21,6 +21,7 @@ enum SpecsEnvelopeKind {
 
   SPECS_ENVELOPE_KIND_PARAM_STORE = 6; // ParamStore
   SPECS_ENVELOPE_KIND_CONDITION = 7; // Condition
+  SPECS_ENVELOPE_KIND_DELTA = 8; // Delta payload - see config_specs_deltas.proto
 }
 
 message SpecsTopLevel {
