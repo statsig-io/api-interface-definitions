@@ -54,7 +54,7 @@ message Spec {
 
 message Rule {
   string name = 1;
-  uint32 pass_percentage = 2;
+  uint32 pass_percentage = 2; // Legacy (See pass_percentage_float)
   string id = 3;
   optional string salt = 4;
   repeated string conditions = 5;
@@ -65,6 +65,7 @@ message Rule {
   optional bool is_experiment_group = 10;
   optional bool is_control_group = 11;
   optional float sampling_rate = 12;
+  optional double pass_percentage_float = 13;
 }
 
 message Condition {
