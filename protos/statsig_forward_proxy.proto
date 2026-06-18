@@ -19,10 +19,12 @@ message ConfigSpecRequest {
     optional uint64 sinceTime = 12; // This was a typo but you can't delete it
     optional apiVersion version = 3;
     optional string zstdDictId = 4;
+    optional string checksum = 5;
 }
 
 message ConfigSpecResponse {
     string spec = 1;
     uint64 lastUpdated = 2;
     optional string zstdDictId = 3;
+    optional string checksum = 4;
 }
