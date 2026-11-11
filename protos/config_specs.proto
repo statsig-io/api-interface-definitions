@@ -50,6 +50,7 @@ message Spec {
   optional bool use_new_layer_eval = 12;
   optional bool forward_all_exposures = 13;
   repeated string fields_used = 14;
+  optional bool disable_exposure_logging = 15;
 }
 
 message Rule {
